@@ -1,0 +1,14 @@
+#main-banner
+
+
+#blog-banner {
+    background: image-url("banner/blog.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+#main-banner .jumbotron  {
+    h1, p {
+        color: #fff;
+        text-shadow: 1px 1px 2px #777;
+    }
+}

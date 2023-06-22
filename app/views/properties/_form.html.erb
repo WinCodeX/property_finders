@@ -1,0 +1,74 @@
+<%= form_with(model: property) do |form| %>
+  <%= render "layouts/validation", item: @property %>
+  <div class="form-group">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price, "Total Price(for_sale) / Monthly Price (rental)" ,style: "display: block" %>
+    <%= form.number_field :price, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rooms, style: "display: block" %>
+    <%= form.number_field :rooms, class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bathrooms, style: "display: block" %>
+    <%= form.number_field :bathrooms, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :parking_spaces, style: "display: block" %>
+    <%= form.number_field :parking_spaces, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :for_sale, style: "display: block" %>
+    <%= form.select :for_sale, options_for_select({ "Yes" => true, "No" => false }, @property.for_sale ), class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <!-- Pass option that refers to rent property -->
+    <% opts = @property.for_sale? ? { "Available" => "available", "Sold" => "sold" } : { "Available" => "available",  "Leased" => "leased" }  %>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, options_for_select(opts, @property.status ), class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :available_date, style: "display: block" %>
+    <%= form.date_field :available_date, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :details, style: "display: block" %>
+    <%= form.text_area :details, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, class:"form-control" %>    
+    <%= form.hidden_field :photo_cache %>
+
+    <% if @property.photo.present? %>
+      <%= image_tage @property.photo.thumb.url, class:"mt-4"  %>
+    <% end %>
+
+  </div>
+
+  <!-- prepopulate it with the current Account Id -->
+  <div class="form-group">
+    <%= form.number_field :account_id,  id: :property_account_id,class:"form-control", value:current_account.id, type: :hidden %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Save Property", class:"btn btn-success" %>
+  </div>
+<% end %>

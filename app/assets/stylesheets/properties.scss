@@ -1,0 +1,24 @@
+.property-thumb {
+    height: 170px;
+    width: 347px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    
+}
+
+.property-main-photo {
+    height: 500px;
+    background-size: cover;
+    margin-bottom: 40px;
+    background-position-y: center;
+}
+
+#prop-details {
+    height: 150px;
+    overflow: hidden;
+
+    &.open {
+        height: auto;
+      }
+}

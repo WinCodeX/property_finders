@@ -1,0 +1,28 @@
+.form-auth{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    margin-top: 80px;
+    text-align: center;
+
+
+    .checkbox{
+        font-weight: 400;
+    }
+    .form-control{
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+    .form-control:focus{
+        z-index: 2;
+    }
+    input[type="email"]{
+        margin-bottom: -1px;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}

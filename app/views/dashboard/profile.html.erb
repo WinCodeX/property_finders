@@ -1,0 +1,66 @@
+<div class="property-main-photo" style="background-image: url('<%= cover_image_url @account %>')">
+  <div class="photo-overlay">
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col">
+          <p class="h4 mb-2"><%= @account.full_name %></p>
+          <p class="mb-2"><%= @account.company %></p>
+          <p class="text-muted">Registered for <%= time_ago_in_words @account.created_at %></p>
+        </div>
+      </div>
+      <div class="row border-top mt-5 pt-4">
+        <div class="col">
+            <p class="h5">Description</p>
+            
+            <!-- wrapper -->
+            <div id="prop-details" class="">
+              <%= simple_format @account.details %>
+            </div>
+            
+            <button class="btn btn-outline-info mt-3" id="details">Show More</button>
+          </div> 
+        </div>  
+      </div>
+      <div class="col-md-4">
+          <%= render "properties/profile_contact_details", agent: @account %>
+          
+          <div class="col-md-10 offset-md-1 text-center">
+            <div class="row mt-sm-3 bg-light p-3">
+              <div class="col-6">
+                  <!-- Reflect The How Ive Define To The Model Scope -->
+                <p class="lead"><%= @properties_sold %><br/>Sold<p>
+              </div>
+              <div class="col-6">
+                <p class="lead"><%= @properties_for_sale %><br/>For Sale<p>
+               </div>
+              <div class="col-6">
+                <p class="lead"><%= @properties_leased %><br/>Leased<p><br/>
+              </div>
+              <div class="col-6">
+                <p class="lead"><%= @properties_for_rent %><br/>For Rent<p><br/>
+              </div>
+            </div>
+          </div>
+        </div>  
+     </div>
+    </div>
+  </div>
+</div>
+
+<section id="mt-5 mb-5">
+<div class="container">
+    <div class="row">
+      <div class="col-12">Set in Tamarama's most sought-after cul-de-sac within a stroll of the sand and surf, this incredible residence delivers the quintessential coastal sanctuary designed for effortless living and entertaining.
+
+      Capturing spectacular views along the dramatic coastline and far out to sea, it reveals a striking tri-level design with stylish contemporary interiors and premium finishes throughout.
+      
+      Cleverly engineered with multiple balconies allowing effortless cross-ventilation, it features generous proportions with separate family living and dining areas while at the heart of the home is a gourmet marble kitchen equipped with a suite of integrated Gaggenau gas appliances.
+      
+      Bi-fold doors allow a seamless flow to a tranquil north facing backyard oasis, complete with a sun bathed entertainment courtyard and a glass fenced mosaic-tiled swimming pool in lush garden surrounds.
+<%= render "properties/send_email_modal", agent: @account %>
